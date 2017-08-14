@@ -5,12 +5,12 @@ cd $(dirname $0)
 
 dev_build() {
   # Do what you need to package your app, e.g. mvn package
-  mvn package
+  mvn clean package
 }
 
 dev_run() {
   # Do what you need to run your app in the foreground
-  java -jar target/bus_route_challenge.jar
+  java -jar target/bus_route_challenge-1.0-SNAPSHOT.jar data/example
   sleep 600
 }
 
