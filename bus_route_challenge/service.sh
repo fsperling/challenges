@@ -10,7 +10,7 @@ dev_build() {
 
 dev_run() {
   # Do what you need to run your app in the foreground
-  java -jar target/bus_route_challenge-1.0-SNAPSHOT.jar data/example
+  java -jar target/bus_route_challenge-1.0-SNAPSHOT.jar $*
   sleep 600
 }
 
