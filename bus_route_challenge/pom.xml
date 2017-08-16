@@ -86,7 +86,6 @@
                 <version>2.4.3</version>
                 <configuration>
                     <finalName>bus_route_challenge-${project.version}</finalName>   
-                    <minimizeJar>true</minimizeJar>
                 </configuration>
                 <executions>
                     <execution>
