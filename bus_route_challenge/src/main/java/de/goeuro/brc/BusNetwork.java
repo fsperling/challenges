@@ -1,4 +1,3 @@
-
 package de.goeuro.brc;
 
 import java.io.File;
@@ -18,21 +17,23 @@ public class BusNetwork {
     private TreeMap<Integer, HashSet> routes;
     private int routeCount;
 
-    BusNetwork(String s) {
+    BusNetwork(String path) {
         Scanner scanner = null;
 
         try {
-            File file = new File(s);
+            File file = new File(path);
             if (file.exists()) {
                 scanner = new Scanner(file);
             }
         } catch (IOException ioe) {
-            System.err.println("Could not open file " + s);
+            System.err.println("Could not open file " + path);
         }
 
         if (scanner != null) {
             parseFile(scanner);
         }
+        
+        // assuming here that if the file exists it has the correct format
     }
 
     private void parseFile(Scanner scanner) {
@@ -61,13 +62,10 @@ public class BusNetwork {
 
     public boolean hasDirectConnection(int busstop1, int busstop2) {
         boolean exists = false;
-        System.out.println("stop1: " + busstop1);
-        System.out.println("stop2: " + busstop2);
 
         Set<Integer> keys = routes.keySet();
         for (Integer routeId : keys) {
             HashSet stopIds = routes.get(routeId);
-            System.out.println("stops of route " + routeId + ": " + stopIds.toString());
             if (stopIds.contains(busstop1) && stopIds.contains(busstop2)) {
                 exists = true;
                 break;
